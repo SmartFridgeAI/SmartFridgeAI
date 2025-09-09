@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SmartFridgeAI</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>🥑 SmartFridgeAI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="app">
     <header>
       <h1>🥑 SmartFridgeAI</h1>
       <nav>
@@ -16,36 +15,40 @@
       </nav>
     </header>
 
-    <main>
-      <section id="home" class="tab active">
-        <textarea id="prompt" placeholder="Enter your ingredients here. Don't add unrelated ingredients or it may glitch."></textarea>
-        <div class="buttons">
-          <button id="run">Get Recipes</button>
-          <button id="clear">Clear</button>
-        </div>
-        <div id="output" class="output">Responses will appear here.</div>
-        <div class="dark-mode-toggle">
-          <label><input type="checkbox" id="darkToggle"> Dark Mode</label>
-        </div>
-      </section>
+    <!-- Home Tab -->
+    <section id="home" class="tab active">
+      <textarea id="prompt" placeholder="Enter ingredients here (e.g. chicken, tomatoes, pasta)... 
+⚠️ Don't add unrelated ingredients otherwise it glitches"></textarea>
+      <div class="buttons">
+        <button id="run">Get Recipes</button>
+        <button id="clear">Clear</button>
+      </div>
+      <div id="output"></div>
+    </section>
 
-      <section id="about" class="tab">
-        <div class="about-card">
-          <h2>About SmartFridgeAI</h2>
-          <p>Made by Lishith, a 12-year-old who used AI to make this app.</p>
-          <p>This app generates recipes based on the ingredients you have in your fridge.</p>
-          <p>Simply enter your ingredients in the Home tab and click "Get Recipes".</p>
-        </div>
-      </section>
-    </main>
+    <!-- About Tab -->
+    <section id="about" class="tab">
+      <div class="about-card">
+        <h2>About SmartFridgeAI</h2>
+        <p><strong>Made by Lishith</strong>, a 12-year-old who used AI to build this app.</p>
+        <p>This app helps you generate recipes instantly using the ingredients you already have. 
+        Just type your ingredients, and SmartFridgeAI will suggest creative dishes.</p>
+        <p><em>Tip:</em> Keep your input clean and only list real ingredients for the best results!</p>
+      </div>
+    </section>
 
     <footer>
       ⚡ Powered by Gemini AI • Made by Lishith
+      <label class="switch">
+        <input type="checkbox" id="darkToggle">
+        <span class="slider"></span>
+      </label>
+      <span>Dark Mode</span>
     </footer>
-
-    <audio id="clickSound" src="click.mp3"></audio>
-    <audio id="typeSound" src="type.mp3"></audio>
   </div>
+
+  <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2576/2576-preview.mp3"></audio>
+  <audio id="typeSound" src="https://assets.mixkit.co/active_storage/sfx/1980/1980-preview.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
