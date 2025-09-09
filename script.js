@@ -5,8 +5,10 @@ const clearBtn = document.getElementById("clear");
 const darkToggle = document.getElementById("darkToggle");
 const clickSound = document.getElementById("clickSound");
 const typeSound = document.getElementById("typeSound");
+const tabBtns = document.querySelectorAll(".tab-btn");
+const tabs = document.querySelectorAll(".tab");
 
-// Your Gemini API key
+// Gemini API key
 const GEMINI_API_KEY = "AIzaSyCk3ljlxhDJwKh7o4vbt90jG1FOro-laJk";
 
 // Clear placeholder on first input
@@ -50,7 +52,7 @@ async function callGemini(prompt) {
 - Number each step
 - Include measurements
 - Format clearly with proper capitalization and punctuation
-- Do not add unrelated ingredients`}
+- Do not add unrelated ingredients` }
         ]
       }
     ]
@@ -96,4 +98,14 @@ clearBtn.addEventListener("click", () => {
 // Dark mode toggle
 darkToggle.addEventListener("change", () => {
   document.body.classList.toggle("dark", darkToggle.checked);
+});
+
+// Tab switching
+tabBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    tabBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    tabs.forEach(t => t.classList.remove("active"));
+    document.getElementById(btn.dataset.tab).classList.add("active");
+  });
 });
